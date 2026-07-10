@@ -1,8 +1,10 @@
 "use client";
 
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 
 const FAQ = () => {
+  const t = useTranslations("FAQ");
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   const toggleAccordion = (index: number) => {
@@ -10,42 +12,12 @@ const FAQ = () => {
   };
 
   const faqs = [
-    {
-      question:
-        "Wie schnell kann eine Solaranlage bei mir installiert werden?",
-      answer:
-        "Die Installation dauert in der Regel 1-3 Tage, abhängig von der Größe der Anlage. Von der ersten Beratung bis zur Inbetriebnahme vergehen meist 4-8 Wochen, inklusive Genehmigungen und Netzanmeldung.",
-    },
-    {
-      question:
-        "Welche Förderungen gibt es für Photovoltaik-Anlagen?",
-      answer:
-        "In Deutschland gibt es verschiedene Förderungen: Einspeisevergütung, KfW-Förderkredite und regionale Zuschüsse. Wir beraten Sie individuell und helfen bei der Beantragung aller verfügbaren Förderungen.",
-    },
-    {
-      question:
-        "Brauche ich einen Batteriespeicher für meine Solaranlage?",
-      answer:
-        "Ein Speicher erhöht Ihre Autarkie deutlich – von ca. 30% auf bis zu 80%. Besonders sinnvoll bei hohem Eigenverbrauch oder wenn Sie auch nachts von Solarstrom profitieren möchten.",
-    },
-    {
-      question:
-        "Wie hoch sind die Kosten für eine Solaranlage?",
-      answer:
-        "Die Kosten variieren je nach Größe und Ausstattung. Eine typische Einfamilienhaus-Anlage (10 kWp) kostet ca. 12.000-18.000€. Durch Förderungen und Stromkostenersparnis amortisiert sich die Anlage in 8-12 Jahren.",
-    },
-    {
-      question:
-        "Wie viel Strom kann meine Solaranlage produzieren?",
-      answer:
-        "In Deutschland produziert 1 kWp Solarleistung ca. 900-1.100 kWh pro Jahr. Eine 10 kWp Anlage deckt damit den Jahresbedarf eines typischen 4-Personen-Haushalts vollständig ab.",
-    },
-    {
-      question:
-        "Was passiert bei einem Stromausfall?",
-      answer:
-        "Standard-Solaranlagen schalten bei Netzausfall ab. Mit einem Notstrom- oder Vollspeicher-System können Sie auch bei Blackout weiter Strom nutzen – wir beraten Sie zu den besten Optionen.",
-    },
+    { question: t("q1"), answer: t("a1") },
+    { question: t("q2"), answer: t("a2") },
+    { question: t("q3"), answer: t("a3") },
+    { question: t("q4"), answer: t("a4") },
+    { question: t("q5"), answer: t("a5") },
+    { question: t("q6"), answer: t("a6") },
   ];
 
   return (
@@ -53,15 +25,15 @@ const FAQ = () => {
       <div className="flex flex-wrap lg:flex-nowrap justify-between gap-6">
         <div className="w-full lg:max-w-[563px] py-4 md:py-8">
           <p className="text-2xl md:text-3xl xl:text-4xl 2xl:text-5xl text-white font-sora font-semibold leading-normal 2xl:leading-[60px]">
-            Häufig gestellte Fragen
+            {t("title")}
           </p>
           <div className="mt-3">
             <span className="text-gray-400 text-sm sm:text-base lg:text-lg font-light font-sora leading-normal">
-              Hast du keine Antwort auf deine Frage gefunden?
+              {t("noAnswer")}
               <br />
             </span>
             <span className="text-white text-sm sm:text-base lg:text-lg font-light font-sora leading-normal">
-              Frag uns hier!
+              {t("askUs")}
             </span>
           </div>
         </div>

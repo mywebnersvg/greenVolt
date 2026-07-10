@@ -1,20 +1,6 @@
 "use client";
 import { useRef } from "react";
-
-const reviews = [
-  {
-    name: "Maria Schmidt",
-    text: `"Die Solaranlage von GreenVolt hat unsere Energiekosten drastisch gesenkt. Perfekte Lösung für unser Einfamilienhaus – professionelle Beratung und schnelle Installation."`,
-  },
-  {
-    name: "Thomas Weber",
-    text: `Seit der Installation unserer Photovoltaikanlage sparen wir über 200€ monatlich. Die Kombination mit dem Batteriespeicher war die richtige Entscheidung – ROI bereits nach 18 Monaten erreicht.`,
-  },
-  {
-    name: "Lisa Hartmann",
-    text: `Endlich unabhängig vom Strompreis. Das Smart-Home-System von GreenVolt optimiert unsere Energieverbrauch automatisch. Unser CO₂-Ausstoß ist um 90% gesunken.`,
-  },
-];
+import { useTranslations } from "next-intl";
 
 const ReviewCard = ({
   name,
@@ -64,7 +50,14 @@ const ReviewCard = ({
 );
 
 const ReviewSection = () => {
+  const t = useTranslations("Reviews");
   const containerRef = useRef<HTMLDivElement>(null);
+
+  const reviews = [
+    { name: t("r1Name"), text: t("r1Text") },
+    { name: t("r2Name"), text: t("r2Text") },
+    { name: t("r3Name"), text: t("r3Text") },
+  ];
 
   const pauseAnimation = () => {
     containerRef.current?.classList.add("paused");
@@ -76,32 +69,32 @@ const ReviewSection = () => {
 
   return (
     <>
-    <h2 className="font-sora font-semibold text-white text-center text-2xl sm:text-3xl lg:text-4xl  2xl:text-5xl leading-normal xl:mt-[146px] mt-[100px] mb-5 md:mb-[42px]">
-      ...und was unsere Kunden sagen
-    </h2>
-    <div className=" overflow-hidden relative">
-      <div className="relative h-[240px] w-full">
-        <div className="absolute top-0 left-0 w-15 sm:w-30 lg:w-[267px] h-full bg-gradient-to-r from-[#0A1210] to-[#0A1210]/0 z-10" />
-        <div className="absolute top-0 right-0 w-15 sm:w-30 lg:w-[267px] h-full rotate-180 bg-gradient-to-r from-[#0A1210] to-[#0A1210]/0 z-10" />
+      <h2 className="font-sora font-semibold text-white text-center text-2xl sm:text-3xl lg:text-4xl  2xl:text-5xl leading-normal xl:mt-[146px] mt-[100px] mb-5 md:mb-[42px]">
+        {t("title")}
+      </h2>
+      <div className=" overflow-hidden relative">
+        <div className="relative h-[240px] w-full">
+          <div className="absolute top-0 left-0 w-15 sm:w-30 lg:w-[267px] h-full bg-gradient-to-r from-[#0A1210] to-[#0A1210]/0 z-10" />
+          <div className="absolute top-0 right-0 w-15 sm:w-30 lg:w-[267px] h-full rotate-180 bg-gradient-to-r from-[#0A1210] to-[#0A1210]/0 z-10" />
 
-        <div
-          ref={containerRef}
-          className="flex w-max items-center animationControl2"
-        >
-          {[...Array(9)].flatMap((_, i) =>
-            reviews.map((review, idx) => (
-              <ReviewCard
-                key={`${review.text}${i}-${idx}`}
-                name={review.name}
-                text={review.text}
-                onHoverStart={pauseAnimation}
-                onHoverEnd={resumeAnimation}
-              />
-            ))
-          )}
+          <div
+            ref={containerRef}
+            className="flex w-max items-center animationControl2"
+          >
+            {[...Array(9)].flatMap((_, i) =>
+              reviews.map((review, idx) => (
+                <ReviewCard
+                  key={`${review.text}${i}-${idx}`}
+                  name={review.name}
+                  text={review.text}
+                  onHoverStart={pauseAnimation}
+                  onHoverEnd={resumeAnimation}
+                />
+              ))
+            )}
+          </div>
         </div>
       </div>
-    </div>
     </>
   );
 };

@@ -1,4 +1,10 @@
+"use client";
+
+import { useTranslations } from "next-intl";
+
 const Tools = () => {
+  const t = useTranslations("Tools");
+
   return (
     <div className="w-full hidden lg:flex max-w-[594px] mx-auto bg-zinc-950 rounded-bl-[10px] rounded-br-[10px] shadow-[0px_20px_20px_0px_rgba(0,0,0,0.70)] border-l border-r border-b border-zinc-800 p-3 flex items-center gap-[11px]">
       <div className="h-[62px] min-w-[217px] cursor-pointer p-[18px] bg-zinc-900 rounded-[14px] outline outline-1 outline-offset-[-1px] transition-all duration-300 hover:brightness-120">
@@ -7,7 +13,7 @@ const Tools = () => {
             <img src="/assets/images/automatisierung.svg" alt="Icon" />
           </div>
           <div className="justify-start text-white text-base font-semibold font-sora">
-            Solartechnik
+            {t("solarTech")}
           </div>
         </div>
       </div>
@@ -17,7 +23,7 @@ const Tools = () => {
             <img src="/assets/images/Webentwicklung.svg" alt="Icon" />
           </div>
           <div className="justify-start text-white text-base font-semibold font-sora">
-            Energiespeicher
+            {t("energyStorage")}
           </div>
         </div>
       </div>
@@ -27,7 +33,7 @@ const Tools = () => {
             <img src="/assets/images/searchSeo.svg" alt="Icon" />
           </div>
           <div className="justify-start text-white text-base font-semibold font-sora">
-            Smart Home
+            {t("smartHome")}
           </div>
         </div>
       </div>

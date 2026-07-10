@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { useRef } from "react";
 import { useInView } from "framer-motion";
@@ -8,6 +8,14 @@ const BannerSection = () => {
   const cardsRef = useRef<HTMLDivElement>(null);
   const cardsRefMain = useRef(null);
   const isInViewCards = useInView(cardsRefMain, { once: true, amount: 0.5 });
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const updateViewport = () => setIsMobile(window.innerWidth < 768);
+    updateViewport();
+    window.addEventListener("resize", updateViewport);
+    return () => window.removeEventListener("resize", updateViewport);
+  }, []);
 
   const easeInOutQuad = (t: number) =>
     t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
@@ -213,16 +221,15 @@ const BannerSection = () => {
                           animate={isInViewCards ? { opacity: 1, y: 0 } : {}}
                           transition={{
                             duration: 0.5,
-                            delay:
-                              window.innerWidth < 768
-                                ? index === 0
-                                  ? 0.2
-                                  : index === 1
-                                  ? 5.8
-                                  : index === 2
-                                  ? 36
-                                  : index * 5
-                                : 0,
+                            delay: isMobile
+                              ? index === 0
+                                ? 0.2
+                                : index === 1
+                                ? 5.8
+                                : index === 2
+                                ? 36
+                                : index * 5
+                              : 0,
                           }}
                           className="text-sm font-normal text-center font-sora text-[#807F8C] bg-[#111A14] px-[15.5px] py-[9px] pt-5 -mt-2.5 truncate rounded-b-[14px]"
                         >

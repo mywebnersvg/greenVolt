@@ -2,7 +2,7 @@
 
 import { useParams } from "next/navigation";
 import { Locale } from "next-intl";
-import { ReactNode, useState, useTransition, isValidElement } from "react";
+import { ReactNode, useEffect, useState, useTransition, isValidElement } from "react";
 import { usePathname, useRouter } from "@/i18n/navigation";
 
 type Option = {
@@ -32,6 +32,10 @@ export default function LocaleSwitcherSelect({
   const [isPending, startTransition] = useTransition();
   const [open, setOpen] = useState(false);
   const [selected, setSelected] = useState(defaultValue);
+
+  useEffect(() => {
+    setSelected(defaultValue);
+  }, [defaultValue]);
 
   // Extract options from children
   const options: Option[] = Array.isArray(children)

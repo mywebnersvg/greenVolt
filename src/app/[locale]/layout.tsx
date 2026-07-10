@@ -64,7 +64,7 @@ export default async function LocaleLayout({ children, params }: Props) {
   setRequestLocale(locale);
 
   return (
-    <html lang="de">
+    <html lang={locale}>
       <body
         className={`${montserrat.variable} ${sora.variable} ${mona.variable} ${geistSans.variable} ${geistMono.variable} antialiased`}
       >

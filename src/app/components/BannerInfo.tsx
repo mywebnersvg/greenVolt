@@ -42,6 +42,14 @@ const BannerInfo = () => {
   const [number4, setNumber4] = useState(0);
   const [number5, setNumber5] = useState(0);
   const [number6, setNumber6] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const updateViewport = () => setIsMobile(isMobile);
+    updateViewport();
+    window.addEventListener("resize", updateViewport);
+    return () => window.removeEventListener("resize", updateViewport);
+  }, []);
 
   // Target values (as numbers)
   const targetValues = {
@@ -327,10 +335,10 @@ const BannerInfo = () => {
             {/* Initial boxes (1 on mobile, 4 on desktop) */}
             <div
               className={`flap-char-container ${
-                window.innerWidth < 768 ? "flex" : "hidden sm:flex"
+                isMobile ? "flex" : "hidden sm:flex"
               }`}
             ></div>
-            {window.innerWidth >= 768 && (
+            {!isMobile && (
               <>
                 <div className="flap-char-container hidden sm:flex"></div>
                 <div className="flap-char-container hidden sm:flex"></div>
@@ -344,7 +352,7 @@ const BannerInfo = () => {
             ))}
 
             {/* Fill remaining boxes (32 total) */}
-            {Array(32 - (window.innerWidth >= 768 ? 11 : 8))
+            {Array(32 - (!isMobile ? 11 : 8))
               .fill(" ")
               .map((_, i) => (
                 <FlapDigit key={`fill2-${i}`} value=" " />
@@ -359,10 +367,10 @@ const BannerInfo = () => {
             {/* Initial boxes (1 on mobile, 6 on desktop) */}
             <div
               className={`flap-char-container ${
-                window.innerWidth < 768 ? "flex" : "hidden sm:flex"
+                isMobile ? "flex" : "hidden sm:flex"
               }`}
             ></div>
-            {window.innerWidth >= 768 && (
+            {!isMobile && (
               <>
                 <div className="flap-char-container hidden sm:flex"></div>
                 <div className="flap-char-container hidden sm:flex"></div>
@@ -380,7 +388,7 @@ const BannerInfo = () => {
 
             {/* Fill remaining boxes (32 total) */}
             {Array(
-              32 - (formatted4.length + 1 + (window.innerWidth >= 768 ? 6 : 1))
+              32 - (formatted4.length + 1 + (!isMobile ? 6 : 1))
             )
               .fill(" ")
               .map((_, i) => (
@@ -396,10 +404,10 @@ const BannerInfo = () => {
             {/* Initial boxes (1 on mobile, 5 on desktop) */}
             <div
               className={`flap-char-container ${
-                window.innerWidth < 768 ? "flex" : "hidden sm:flex"
+                isMobile ? "flex" : "hidden sm:flex"
               }`}
             ></div>
-            {window.innerWidth >= 768 && (
+            {!isMobile && (
               <>
                 <div className="flap-char-container hidden sm:flex"></div>
                 <div className="flap-char-container hidden sm:flex"></div>
@@ -414,7 +422,7 @@ const BannerInfo = () => {
             ))}
 
             {/* Fill remaining boxes (32 total) */}
-            {Array(32 - (8 + (window.innerWidth >= 768 ? 5 : 1)))
+            {Array(32 - (8 + (!isMobile ? 5 : 1)))
               .fill(" ")
               .map((_, i) => (
                 <FlapDigit key={`fill4-${i}`} value=" " />
@@ -429,10 +437,10 @@ const BannerInfo = () => {
             {/* Initial boxes (1 on mobile, 5 on desktop) */}
             <div
               className={`flap-char-container ${
-                window.innerWidth < 768 ? "flex" : "hidden sm:flex"
+                isMobile ? "flex" : "hidden sm:flex"
               }`}
             ></div>
-            {window.innerWidth >= 768 && (
+            {!isMobile && (
               <>
                 <div className="flap-char-container hidden sm:flex"></div>
                 <div className="flap-char-container hidden sm:flex"></div>
@@ -449,7 +457,7 @@ const BannerInfo = () => {
 
             {/* Fill remaining boxes (32 total) */}
             {Array(
-              32 - (formatted5.length + 1 + (window.innerWidth >= 768 ? 5 : 1))
+              32 - (formatted5.length + 1 + (!isMobile ? 5 : 1))
             )
               .fill(" ")
               .map((_, i) => (
@@ -465,10 +473,10 @@ const BannerInfo = () => {
             {/* Initial boxes (1 on mobile, 5 on desktop) */}
             <div
               className={`flap-char-container ${
-                window.innerWidth < 768 ? "flex" : "hidden sm:flex"
+                isMobile ? "flex" : "hidden sm:flex"
               }`}
             ></div>
-            {window.innerWidth >= 768 && (
+            {!isMobile && (
               <>
                 <div className="flap-char-container hidden sm:flex"></div>
                 <div className="flap-char-container hidden sm:flex"></div>
@@ -485,7 +493,7 @@ const BannerInfo = () => {
             )}
 
             {/* Fill remaining boxes (32 total) */}
-            {Array(32 - (9 + (window.innerWidth >= 768 ? 5 : 1)))
+            {Array(32 - (9 + (!isMobile ? 5 : 1)))
               .fill(" ")
               .map((_, i) => (
                 <FlapDigit key={`fill6-${i}`} value=" " />
@@ -500,10 +508,10 @@ const BannerInfo = () => {
             {/* Initial boxes (1 on mobile, 5 on desktop) */}
             <div
               className={`flap-char-container ${
-                window.innerWidth < 768 ? "flex" : "hidden sm:flex"
+                isMobile ? "flex" : "hidden sm:flex"
               }`}
             ></div>
-            {window.innerWidth >= 768 && (
+            {!isMobile && (
               <>
                 <div className="flap-char-container hidden sm:flex"></div>
                 <div className="flap-char-container hidden sm:flex"></div>
@@ -520,7 +528,7 @@ const BannerInfo = () => {
 
             {/* Fill remaining boxes (32 total) */}
             {Array(
-              32 - (formatted6.length + 1 + (window.innerWidth >= 768 ? 5 : 1))
+              32 - (formatted6.length + 1 + (!isMobile ? 5 : 1))
             )
               .fill(" ")
               .map((_, i) => (

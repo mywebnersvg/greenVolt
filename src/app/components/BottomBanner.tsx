@@ -2,6 +2,7 @@
 
 import { useRef, useState, useEffect } from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
+import { useTranslations } from "next-intl";
 import "../../app/globals.css";
 
 type AnimationCustom = { x: number; y: number; delay: number };
@@ -33,6 +34,7 @@ const CounterDigit = ({ value }: { value: string }) => {
 };
 
 const BottomBanner = () => {
+  const t = useTranslations("BottomBanner");
   const firstRef = useRef(null);
   const secondRef = useRef(null);
 
@@ -354,14 +356,13 @@ const BottomBanner = () => {
       </div>
       <div className="w-full 2xl:max-w-[1288px] xl:max-w-[1075px] mx-auto xl:h-[954px] pt-3.5">
         <p className=" text-base md:text-lg xl:text-xl 2xl:text-2xl font-semibold font-sora text-[#10B981]">
-          Die Herausforderungen, die wir lösen.
+          {t("challengesLabel")}
         </p>
         <h3 className="text-white text-xl md:text-2xl xl:text-3xl 2xl:text-5xl font-semibold font-sora mt-1">
-          Kennst du diese Situation?
+          {t("challengesTitle")}
         </h3>
         <p className="w-full max-w-[773px] mt-1 text-[#807F8C]  text-base md:text-lg xl:text-xl 2xl:text-2xl font-normal font-sora leading-normal 2xl:leading-9">
-          Wir lösen die häufigsten Energieprobleme kleiner und
-          mittelständischer Unternehmen - mit smarter Solartechnik
+          {t("challengesDesc")}
         </p>
         <div className="mt-5 xl:mt-8 2xl:mt-12 flex md:flex-row flex-col gap-8 justify-between">
           <div className="flex flex-col gap-8">
@@ -369,37 +370,35 @@ const BottomBanner = () => {
               <div className="flex items-center gap-3">
                 <img src="/assets/images/goUppwardArrow.svg" alt="arrow" />
                 <h5 className=" text-white 2xl:text-xl text-base 2xl:leading-7 leading-5 font-semibold font-sora w-full max-w-[376px]">
-                  Steigende Stromkosten belasten dein Budget
-                  massiv.
+                  {t("card1Title")}
                 </h5>
               </div>
               <p className="mt-2 lg:mt-3.5 2xl:mt-6 text-[#B2B2B2] 2xl:text-base text-[13px] font-normal font-sora">
-                Unsere Solarlösungen ermöglichen nachhaltiges
-                Energie ohne steigende Strompreise.
+                {t("card1Desc")}
               </p>
               <div className="mt-3 lg:mt-6 2xl:mt-12 flex flex-col gap-3">
                 <div className="flex items-center gap-3">
                   <img src="/assets/images/dislike.svg" alt="dislike" />
                   <p className="text-white 2xl:text-base text-xs font-semibold font-sora leading-[16px]">
-                    Monatliche Stromrechnungen über 300€
+                    {t("card1Item1")}
                   </p>
                 </div>
                 <div className="flex items-center gap-3">
                   <img src="/assets/images/dislike.svg" alt="dislike" />
                   <p className="text-white 2xl:text-base text-xs font-semibold font-sora leading-[16px]">
-                    Abhängigkeit vom fossilen Stromnetz
+                    {t("card1Item2")}
                   </p>
                 </div>
                 <div className="flex items-center gap-3">
                   <img src="/assets/images/dislike.svg" alt="dislike" />
                   <p className="text-white 2xl:text-base text-xs font-semibold font-sora leading-[16px]">
-                    Keine Kontrolle über Energiekosten
+                    {t("card1Item3")}
                   </p>
                 </div>
                 <div className="flex items-center gap-3">
                   <img src="/assets/images/rightArrow.svg" alt="arrow" />
                   <p className="text-white 2xl:text-base text-xs font-semibold font-sora leading-[16px]">
-                    Lösung: maßgeschneiderte Photovoltaik-Anlage
+                    {t("card1Solution")}
                   </p>
                 </div>
               </div>
@@ -409,36 +408,35 @@ const BottomBanner = () => {
               <div className="flex items-center gap-3">
                 <img src="/assets/images/left-arrow-heading.png" alt="arrow" />
                 <h5 className="text-white 2xl:text-xl text-base 2xl:leading-7 leading-5 font-semibold font-sora w-full max-w-[376px]">
-                  Unzureichende Energieeffizienz im Gebäude
+                  {t("card2Title")}
                 </h5>
               </div>
               <p className="mt-2 lg:mt-3.5 2xl:mt-6 text-[#B2B2B2] 2xl:text-base text-[13px] font-normal font-sora">
-                Unsere Solarlösungen ermöglichen nachhaltiges
-                Energie ohne steigende Strompreise.
+                {t("card2Desc")}
               </p>
               <div className="mt-3 lg:mt-6 2xl:mt-12 flex flex-col gap-3">
                 <div className="flex items-center gap-3">
                   <img src="/assets/images/dislike.svg" alt="dislike" />
                   <p className="text-white 2xl:text-base text-xs font-semibold font-sora leading-[16px]">
-                    Alte Heizsysteme verbrauchen viel Energie
+                    {t("card2Item1")}
                   </p>
                 </div>
                 <div className="flex items-center gap-3">
                   <img src="/assets/images/dislike.svg" alt="dislike" />
                   <p className="text-white 2xl:text-base text-xs font-semibold font-sora leading-[16px]">
-                    Keine Nutzung von Sonnenenergie
+                    {t("card2Item2")}
                   </p>
                 </div>
                 <div className="flex items-center gap-3">
                   <img src="/assets/images/dislike.svg" alt="dislike" />
                   <p className="text-white 2xl:text-base text-xs font-semibold font-sora leading-[16px]">
-                    Förderungen werden nicht genutzt
+                    {t("card2Item3")}
                   </p>
                 </div>
                 <div className="flex items-center gap-3">
                   <img src="/assets/images/rightArrow.svg" alt="arrow" />
                   <p className="text-white 2xl:text-base text-xs font-semibold font-sora leading-[16px]">
-                    Lösung: Smart-Home Energiemanagement
+                    {t("card2Solution")}
                   </p>
                 </div>
               </div>
@@ -449,13 +447,11 @@ const BottomBanner = () => {
             <div className="flex items-center gap-3">
               <img src="/assets/images/left-arrow-heading.png" alt="arrow" />
               <h5 className=" text-white 2xl:text-xl text-base 2xl:leading-7 leading-5 font-semibold font-sora w-full max-w-[376px]">
-                Steigende Stromkosten belasten dein Budget massiv.
+                {t("card3Title")}
               </h5>
             </div>
             <p className="mt-2 lg:mt-3.5 2xl:mt-6 text-[#B2B2B2] 2xl:text-base text-[13px] font-normal font-sora">
-              Dein Gebäude verliert Energie durch schlechte Isolierung und
-              veraltete Technik, was Kosten und CO₂-Ausstoß erhöht.
-              Mit Solartechnik wird dein Gebäude zur eigenen Energiequelle.
+              {t("card3Desc")}
             </p>
             <div className="lg:mt-7 2xl:mt-[83px] mt-4 lg:pt-0 flex flex-col gap-1.5 h-[224px] min-h-[244px] max-h-[244px] relative overflow-hidden">
               <AnimatePresence>
@@ -514,25 +510,25 @@ const BottomBanner = () => {
               <div className="flex items-center gap-3">
                 <img src="/assets/images/dislike.svg" alt="dislike" />
                 <p className="text-white 2xl:text-base text-xs font-semibold font-sora leading-[16px]">
-                  Energieverbrauch ist nicht transparent
+                  {t("card3Item1")}
                 </p>
               </div>
               <div className="flex items-center gap-3">
                 <img src="/assets/images/dislike.svg" alt="dislike" />
                 <p className="text-white 2xl:text-base text-xs font-semibold font-sora leading-[16px]">
-                  Kein Echtzeit-Monitoring vorhanden
+                  {t("card3Item2")}
                 </p>
               </div>
               <div className="flex items-center gap-3">
                 <img src="/assets/images/dislike.svg" alt="dislike" />
                 <p className="text-white 2xl:text-base text-xs font-semibold font-sora leading-[16px]">
-                  Spitzenlasten belasten das Netz
+                  {t("card3Item3")}
                 </p>
               </div>
               <div className="flex items-center gap-3">
                 <img src="/assets/images/rightArrow.svg" alt="arrow" />
                 <p className="text-white 2xl:text-base text-xs font-semibold font-sora leading-[16px]">
-                  Lösung: Intelligentes Energie-Monitoring-System
+                  {t("card3Solution")}
                 </p>
               </div>
             </div>
@@ -544,20 +540,19 @@ const BottomBanner = () => {
         <div className="lg:flex w-full justify-end max-w-[1750px] 2xl:pl-[231px] xl:pl-[100px]">
           <div className="w-full lg:max-w-[549px] max-w-full 2xl:pt-[105px] xl:pt-[70px] lg:pt-[123px] lg:text-left text-center lg:px-0 px-4">
             <p className="text-base md:text-lg xl:text-xl 2xl:text-2xl font-semibold font-sora text-[#10B981]">
-              Unsere Lösung
+              {t("solutionLabel")}
             </p>
             <h3 className="mt-1 text-white text-xl md:text-2xl xl:text-3xl 2xl:text-5xl font-semibold font-sora">
-              Energie analysieren
+              {t("analyzeTitle")}
             </h3>
             <p className="text-base md:text-lg xl:text-xl 2xl:text-2xl font-normal font-sora leading-normal 2xl:leading-9 text-[#807F8C]">
-              Wir analysieren deinen Energiebedarf und finden den Weg zur
-              optimalen Solarlösung.
+              {t("analyzeDesc")}
             </p>
             <a
               href="#"
               className="text-white text-base md:text-lg xl:text-xl 2xl:text-2xl font-semibold font-sora leading-9"
             >
-              Mehr erfahren &gt;
+              {t("learnMore")}
             </a>
 
             <div className="mt-9 flex flex-col sm:flex-row items-center gap-9 lg:justify-start justify-center">
@@ -568,7 +563,7 @@ const BottomBanner = () => {
                   className="w-4 h-4 md:w-auto md:h-auto"
                 />
                 <p className="text-[#807F8C] text-lg sm:text-xl lg:text-2xl font-semibold font-sora leading-normal lg:leading-9">
-                  Mit Tools wie
+                  {t("withTools")}
                 </p>
               </div>
               <div className="flex item-center gap-5">
@@ -1282,12 +1277,11 @@ const BottomBanner = () => {
                 <div className="flex gap-[15px] items-center">
                   <div className="border border-solid border-[#5B596E] bg-[#33323E] dropShadowCircle w-[2.59vh] h-[2.59vh] rounded-full" />
                   <p className=" text-base text-white font-sora">
-                    Standortanalyse
+                    {t("siteAnalysis")}
                   </p>
                 </div>
                 <p className="text-[#807F8C] text-[11px] leading-normal font-sora mt-[11px]">
-                  Analyse der Dachfläche, Ausrichtung und
-                  Sonneneinstrahlung.
+                  {t("siteAnalysisDesc")}
                 </p>
               </motion.div>
 
@@ -1302,13 +1296,12 @@ const BottomBanner = () => {
                   <div className="flex gap-[15px] items-center">
                     <div className="border border-solid border-[#5B596E] bg-[#33323E] dropShadowCircle w-[2.59vh] h-[2.59vh] rounded-full" />
                     <p className=" text-base text-white font-sora">
-                      Energieaudit
+                      {t("energyAudit")}
                     </p>
                   </div>
 
                   <p className="text-[#807F8C] text-[11px] leading-normal font-sora mt-[11px]">
-                    Ersteinschätzung deines Energiebedarfs basierend auf
-                    Interviews & Daten.
+                    {t("energyAuditDesc")}
                   </p>
                 </motion.div>
 
@@ -1323,13 +1316,12 @@ const BottomBanner = () => {
                     <div className="flex gap-[15px] items-center">
                       <div className="border border-solid border-[#5B596E] bg-[#33323E] dropShadowCircle w-[2.59vh] h-[2.59vh] rounded-full" />
                       <p className=" text-base text-white font-sora">
-                        Systemplanung
+                        {t("systemPlanning")}
                       </p>
                     </div>
 
                     <p className="text-[#807F8C] text-[11px] leading-normal font-sora mt-[11px]">
-                      Ersteinschätzung deines Energiebedarfs basierend auf
-                      Interviews & Daten.
+                      {t("systemPlanningDesc")}
                     </p>
                   </motion.div>
 
@@ -1343,13 +1335,12 @@ const BottomBanner = () => {
                     <div className="flex gap-[15px] items-center">
                       <div className="border border-solid border-[#5B596E] bg-[#33323E] dropShadowCircle w-[2.59vh] h-[2.59vh] rounded-full" />
                       <p className=" text-base text-white font-sora">
-                        Optimierung
+                        {t("optimization")}
                       </p>
                     </div>
 
                     <p className="text-[#807F8C] text-[11px] leading-normal font-sora mt-[11px]">
-                      Identifikation von Energieverlusten und
-                      Optimierungspotenzialen.
+                      {t("optimizationDesc")}
                     </p>
                   </motion.div>
                 </div>
@@ -1372,20 +1363,19 @@ const BottomBanner = () => {
                       />
                     </div>
                     <p className=" text-base text-white font-sora">
-                      Solar-Report
+                      {t("solarReport")}
                     </p>
                   </div>
 
                   <p className="text-[#807F8C] text-[11px] leading-normal font-sora mt-[11px]">
-                    Detaillierter Bericht mit Energiebedarf, Systemgröße, Kosten
-                    und{" "}
+                    {t("solarReportDesc")}{" "}
                     <span className="font-semibold">
-                      Förderungsoptionen.
+                      {t("solarReportHighlight")}
                     </span>
                   </p>
                 </div>
                 <div className="border border-solid border-[#33323E] bg-[#111A14] w-full rounded-b-xl w-full pt-[35px] pl-5 pr-[35px] pb-[15px] text-[#807F8C] text-[11px] leading-normal font-sora -mt-3">
-                  Empfehlungen zur optimalen Solaranlage & Speicher.
+                  {t("solarReportFooter")}
                 </div>
               </motion.div>
             </div>
@@ -4137,16 +4127,15 @@ const BottomBanner = () => {
           </div>
           <div className="w-full lg:max-w-[700px] 2xl:max-w-[1000px] relative lg:mt-0 mt-10 2xl:pt-[246px] 2xl:pl-[10rem] lg:pt-[123px] xl:pl-[160px] lg:px-0 px-4 lg:text-left text-center">
             <p className="text-base md:text-lg xl:text-xl 2xl:text-2xl font-semibold font-sora text-[#10B981]">
-              Unsere Lösung
+              {t("solutionLabel")}
             </p>
             <h3 className="mt-1 text-white text-xl md:text-2xl xl:text-3xl 2xl:text-5xl font-semibold font-sora">
-              Solartechnik
+              {t("solarTechTitle")}
             </h3>
             <p className="text-base md:text-lg xl:text-xl 2xl:text-2xl font-normal font-sora leading-normal 2xl:leading-9 text-[#807F8C] lg:max-w-[620px]">
-              Wir planen und installieren maßgeschneiderte Solaranlagen um die
-              Energieprobleme deines Gebäudes zu lösen.{" "}
+              {t("solarTechDesc")}{" "}
               <span className="text-white text-2xl font-semibold font-sora leading-9 cursor-pointer">
-                Mehr erfahren &gt;
+                {t("learnMore")}
               </span>
             </p>
 
@@ -4158,7 +4147,7 @@ const BottomBanner = () => {
                   className="w-4 h-4 md:w-auto md:h-auto"
                 />
                 <p className="text-[#807F8C] md:text-lg xl:text-xl 2xl:text-2xl font-semibold font-sora leading-normal 2xl:leading-9 ">
-                  Mit Tools wie
+                  {t("withTools")}
                 </p>
               </div>
               <div className="flex item-center gap-5">

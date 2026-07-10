@@ -1,8 +1,10 @@
 "use client";
 import { useState, useRef, useEffect } from "react";
+import { useTranslations } from "next-intl";
 import LocaleSwitcher from "./LocaleSwitcher";
 
 const Navbar = () => {
+  const t = useTranslations("Navbar");
   const [isOpen, setIsOpen] = useState(true); // desktop dropdown
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false); // mobile menu
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -54,7 +56,7 @@ const Navbar = () => {
               href="#"
               className="text-white text-base font-semibold font-sora capitalize"
             >
-              Home
+              {t("home")}
             </a>
             <div
               onMouseEnter={() => setIsHovered(true)}
@@ -63,7 +65,7 @@ const Navbar = () => {
             >
               <div className="w-full max-w-[203px] px-2.5 py-2 cursor-pointer h-[34px] bg-[#152018] rounded-[9px] inline-flex justify-between items-center gap-2">
                 <span className="text-white text-base font-semibold font-sora capitalize">
-                  Leistungen
+                  {t("services")}
                 </span>
                 <img
                   src="/assets/images/dropdownIcon.svg"
@@ -92,7 +94,7 @@ const Navbar = () => {
                         />
                       </div>
                       <div className="justify-start text-white text-base font-semibold font-sora">
-                        Solartechnik
+                        {t("solarTech")}
                       </div>
                     </div>
                   </div>
@@ -105,7 +107,7 @@ const Navbar = () => {
                         />
                       </div>
                       <div className="justify-start text-white text-base font-semibold font-sora">
-                        Energiespeicher
+                        {t("energyStorage")}
                       </div>
                     </div>
                   </div>
@@ -115,7 +117,7 @@ const Navbar = () => {
                         <img src="/assets/images/searchSeo.svg" alt="Icon" />
                       </div>
                       <div className="justify-start text-white text-base font-semibold font-sora">
-                        Smart Home
+                        {t("smartHome")}
                       </div>
                     </div>
                   </div>
@@ -126,19 +128,19 @@ const Navbar = () => {
               href="#"
               className="text-white text-base font-semibold font-sora capitalize"
             >
-              Referenzen
+              {t("references")}
             </a>
             <a
               href="#"
               className="text-white text-base font-semibold font-sora capitalize"
             >
-              Über uns
+              {t("about")}
             </a>
             <a
               href="#"
               className="text-white text-base font-semibold font-sora capitalize"
             >
-              Blog
+              {t("blog")}
             </a>
           </div>
 
@@ -148,7 +150,7 @@ const Navbar = () => {
               type="button"
               className="lg:block hidden px-2 md:px-4 h-8 sm:h-10 bg-gradient-to-r from-emerald-400 to-emerald-800 rounded text-white font-sora text-sm sm:text-base font-semibold shadow transition-all duration-300 hover:brightness-110"
             >
-              Kontakt
+              {t("contact")}
             </button>
 
             <div
@@ -177,35 +179,35 @@ const Navbar = () => {
               href="#"
               className="text-white text-base font-semibold font-sora px-4 py-2 capitalize transition-all hover:bg-zinc-950/10"
             >
-              Home
+              {t("home")}
             </a>
             <a
               href="#"
               className="text-white text-base font-semibold px-4 py-2 font-sora capitalize transition-all hover:bg-zinc-950/10"
             >
-              Dienstleistungen
+              {t("servicesMobile")}
             </a>
             <a
               href="#"
               className="text-white text-base font-semibold px-4 py-2 font-sora capitalize transition-all hover:bg-zinc-950/10"
             >
-              Referenzen
+              {t("references")}
             </a>
             <a
               href="#"
               className="text-white text-base font-semibold px-4 py-2 font-sora capitalize transition-all hover:bg-zinc-950/10"
             >
-              Über uns
+              {t("about")}
             </a>
             <a
               href="#"
               className="text-white text-base font-semibold px-4 py-2 font-sora capitalize transition-all hover:bg-zinc-950/10"
             >
-              Blog
+              {t("blog")}
             </a>
             <div className="px-4">
               <button className="w-full mt-2 px-4 py-2 bg-gradient-to-r from-emerald-400 to-emerald-800 rounded text-white font-sora text-base font-semibold shadow hover:brightness-110">
-                Kontakt
+                {t("contact")}
               </button>
             </div>
           </div>

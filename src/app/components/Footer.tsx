@@ -1,4 +1,10 @@
+"use client";
+
+import { useTranslations } from "next-intl";
+
 const Footer = () => {
+  const t = useTranslations("Footer");
+
   return (
     <>
       {/* <div className="bg-[url('/assets/images/footerBackground.png')]  bg-center bg-cover bg-no-repeat ">
@@ -163,12 +169,12 @@ const Footer = () => {
         <div className="w-full h-full absolute top-0 flex items-center justify-center px-4">
           <div className="w-full max-w-[995px] mx-auto">
             <h5 className="text-center text-white text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-semibold font-sora leading-normal md:leading-[48px] lg:leading-[72px] relative">
-              Sind Sie noch unsicher?
+              {t("headline1")}
               <br />
-              Die Erstberatung ist{" "}
+              {t("headline2")}{" "}
               <span className="relative">
                 {" "}
-                kostenlos
+                {t("free")}
                 <img
                   src="/assets/images/footerTextCurve.svg"
                   alt="line"
@@ -177,15 +183,14 @@ const Footer = () => {
               </span>
             </h5>
             <p className="text-base leading-normal sm:text-lg md:text-2xl leading-normal md:leading-8 text-[#bbbbbb] text-center mt-6 mb-0">
-              Kostenlose Solarberatung – Ihr Energiepotenzial identifizieren wir
-              in 30 Minuten.
+              {t("subtitle")}
             </p>
             <button
               type="button"
               className=" p-2 md:p-4 mt-8 bg-white rounded-lg mx-auto flex justify-center items-center gap-2 cursor-pointer group transition-all duration-300 hover:bg-[#dbdbdb]"
             >
               <div className="text-center justify-start text-zinc-950 text-base sm:text-lg md:text-xl lg:text-2xl font-bold cursor-pointer font-sora capitalize leading-normal md:leading-tight tracking-wide group-hover:transition-all group-hover:duration-300 group-hover:bg-[#dbdbdb]">
-                jetzt termin vereinbaren
+                {t("cta")}
               </div>
             </button>
           </div>
@@ -234,138 +239,138 @@ const Footer = () => {
             </div>
           </div>
           <p className="text-gray-500 text-sm font-normal font-sora mt-8 leading-5">
-            © 2025 GreenVolt Energie
+            {t("copyright")}
           </p>
         </div>
         <div className="w-full max-w-[933px]  flex flex-wrap gap-16">
           <div>
             <h6 className="text-white/75 text-xs font-bold font-sora uppercase leading-tight tracking-wide">
-              leistungen
+              {t("services")}
             </h6>
             <ul className="mt-6 flex flex-col gap-2.5">
               <li className="text-white/50 text-xs font-semibold font-sora uppercase leading-tight tracking-wide">
-                solartechnik
+                {t("solarTech")}
               </li>
               <li className="text-white/50 text-xs font-semibold font-sora uppercase leading-tight tracking-wide">
-                energiespeicher
+                {t("energyStorage")}
               </li>
               <li className="text-white/50 text-xs font-semibold font-sora uppercase leading-tight tracking-wide">
-                smart home
+                {t("smartHome")}
               </li>
             </ul>
           </div>
           <div>
             <h6 className="text-white/75 text-xs font-bold font-sora uppercase leading-tight tracking-wide">
-              company
+              {t("company")}
             </h6>
             <ul className="mt-6 flex flex-col gap-2.5">
               <li className="text-white/50 text-xs font-semibold font-sora uppercase leading-tight tracking-wide">
-                über uns
+                {t("about")}
               </li>
               <li className="text-white/50 text-xs font-semibold font-sora uppercase leading-tight tracking-wide">
-                referenzen
+                {t("references")}
               </li>
               <li className="text-white/50 text-xs font-semibold font-sora uppercase leading-tight tracking-wide">
-                kontakt
+                {t("contact")}
               </li>
               <li className="text-white/50 text-xs font-semibold font-sora uppercase leading-tight tracking-wide">
-                privacy policy
+                {t("privacy")}
               </li>
             </ul>
           </div>
           <div>
             <h6 className="text-white/75 text-xs font-bold font-sora uppercase leading-tight tracking-wide">
-              Resources
+              {t("resources")}
             </h6>
             <ul className="mt-6 flex flex-col gap-2.5">
               <li className="text-white/50 text-xs font-semibold font-sora uppercase leading-tight tracking-wide">
-                blog
+                {t("blog")}
               </li>
               <li className="text-white/50 text-xs font-semibold font-sora uppercase leading-tight tracking-wide">
-                downloads
+                {t("downloads")}
               </li>
               <li className="text-white/50 text-xs font-semibold font-sora uppercase leading-tight tracking-wide">
-                dokumentation
+                {t("docs")}
               </li>
             </ul>
           </div>
           <div>
             <h6 className="text-white/75 text-xs font-bold font-sora uppercase leading-tight tracking-wide">
-              produkte
+              {t("products")}
             </h6>
             <ul className="mt-6 flex flex-col gap-2.5">
               <li className="text-white/50 text-xs font-semibold font-sora uppercase leading-tight tracking-wide">
-                photovoltaik
+                {t("photovoltaic")}
               </li>
               <li className="text-white/50 text-xs font-semibold font-sora uppercase leading-tight tracking-wide">
-                batteriespeicher
+                {t("battery")}
               </li>
               <li className="text-white/50 text-xs font-semibold font-sora uppercase leading-tight tracking-wide">
-                wallbox
+                {t("wallbox")}
               </li>
             </ul>
           </div>
           <div>
             <h6 className="text-white/75 text-xs font-bold font-sora uppercase leading-tight tracking-wide">
-              lösungen
+              {t("solutions")}
             </h6>
             <ul className="mt-6 flex flex-col gap-2.5">
               <li className="text-white/50 text-xs font-semibold font-sora uppercase leading-tight tracking-wide">
-                einfamilienhaus
+                {t("familyHome")}
               </li>
               <li className="text-white/50 text-xs font-semibold font-sora uppercase leading-tight tracking-wide">
-                gewerbe
+                {t("commercial")}
               </li>
               <li className="text-white/50 text-xs font-semibold font-sora uppercase leading-tight tracking-wide">
-                industrie
+                {t("industry")}
               </li>
             </ul>
           </div>
           <div>
             <h6 className="text-white/75 text-xs font-bold font-sora uppercase leading-tight tracking-wide">
-              who we serve
+              {t("whoWeServe")}
             </h6>
             <ul className="mt-6 flex flex-col gap-2.5">
               <li className="text-white/50 text-xs font-semibold font-sora uppercase leading-tight tracking-wide">
-                hausbesitzer
+                {t("homeowners")}
               </li>
               <li className="text-white/50 text-xs font-semibold font-sora uppercase leading-tight tracking-wide">
-                unternehmen
+                {t("businesses")}
               </li>
               <li className="text-white/50 text-xs font-semibold font-sora uppercase leading-tight tracking-wide">
-                gemeinden
+                {t("communities")}
               </li>
             </ul>
           </div>
           <div>
             <h6 className="text-white/75 text-xs font-bold font-sora uppercase leading-tight tracking-wide">
-              lösungen
+              {t("solutions")}
             </h6>
             <ul className="mt-6 flex flex-col gap-2.5">
               <li className="text-white/50 text-xs font-semibold font-sora uppercase leading-tight tracking-wide">
-                solarrechner
+                {t("solarCalc")}
               </li>
               <li className="text-white/50 text-xs font-semibold font-sora uppercase leading-tight tracking-wide">
-                energie-monitor
+                {t("energyMonitor")}
               </li>
               <li className="text-white/50 text-xs font-semibold font-sora uppercase leading-tight tracking-wide">
-                smart grid
+                {t("smartGrid")}
               </li>
             </ul>
           </div>
           <div>
             <h6 className="text-white/75 text-xs font-bold font-sora uppercase leading-tight tracking-wide">
-              partner
+              {t("partner")}
             </h6>
             <ul className="mt-6 flex flex-col gap-2.5">
               <li className="text-white/50 text-xs font-semibold font-sora uppercase leading-tight tracking-wide">
-                solarrechner
+                {t("solarCalc")}
               </li>
               <li className="text-white/50 text-xs font-semibold font-sora uppercase leading-tight tracking-wide">
-                energie-monitor
+                {t("energyMonitor")}
               </li>
               <li className="text-white/50 text-xs font-semibold font-sora uppercase leading-tight tracking-wide">
-                smart grid
+                {t("smartGrid")}
               </li>
             </ul>
           </div>
