@@ -1,0 +1,325 @@
+@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-montserrat: var(--font-montserrat);
+  --font-sora: var(--font-sora);
+  --font-mona: var(--font-mona);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("/public/fonts/Montserrat/static/Montserrat-Light.ttf")
+    format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Mona_Sans";
+  src: url("/public/fonts/Sora/static/Sora-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Mona_";
+  src: url("/public/fonts/Mona_Sans/static/MonaSans-Light.ttf")
+    format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+.gradientBorder {
+  position: relative;
+  border-radius: 16px;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.gradientBorder::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  z-index: -1;
+  border-radius: 18px;
+  background: conic-gradient(
+    at top left,
+    #A3E635 0deg,
+    /* top-left */ #A3E635 10deg,
+    /* stretch visibility */ #10B981 100deg,
+    /* bottom-left */ #059669 190deg,
+    /* bottom-right */ #F59E0B 280deg,
+    /* top-right */ #A3E635 360deg /* full circle close */
+  );
+}
+
+.flap-char-container {
+  background-color: #0d1510;
+  border: 1px solid #1e3a2f;
+  position: relative;
+  /* display: flex; */
+  align-items: center;
+  width: 32px;
+  padding: 0;
+  /* min-width: 32px; */
+  height: 40px;
+  font-size: 20px;
+  font-weight: 600;
+  border-radius: 6px;
+  color: white;
+  padding-top: 2px;
+  justify-content: center;
+  @media (max-width: 425px) {
+    width: 28px;
+    height: 34px;
+    font-size: 18px;
+  }
+  @media (min-width: 640px) and (max-width: 1024px) {
+    width: 42px;
+    height: 56px;
+    font-size: 28px;
+    padding-top: 4px;
+  }
+
+  @media (min-width: 1025px) and (max-width: 1279px) {
+    width: 32px;
+    height: 40px;
+    font-size: 20px;
+  }
+  @media (min-width: 1280px) and (max-width: 1537px) {
+    width: 42px;
+    height: 56px;
+    font-size: 28px;
+    padding-top: 4px;
+  }
+  @media (min-width: 1536px) {
+    width: 47.5px;
+    height: 60px;
+    font-size: 32px;
+  }
+}
+.scaleCards {
+  scale: 1;
+  @media (min-width: 768px) and (max-width: 1024px) {
+    scale: 0.8;
+  }
+}
+.animationCard1 {
+  animation: card1 0.2s linear 0.2s alternate;
+}
+@keyframes card1 {
+  0% {
+    scale: 0.2;
+    left: 30%;
+  }
+  30% {
+    scale: 1.2;
+    left: 30%;
+  }
+  50% {
+    scale: 1;
+    left: 30%;
+  }
+  100% {
+    left: 0%;
+  }
+}
+
+.animationControl {
+  animation: slide 50s linear infinite;
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-60%);
+  }
+}
+
+.animationControl2 {
+  animation: slide 100s linear infinite;
+  animation-play-state: running;
+}
+
+.animationControl2.paused {
+  animation-play-state: paused;
+}
+.scrollHide {
+  overflow-y: scroll;
+}
+
+.scrollHide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.animationRemove {
+  animation: removeAnimation 0.6s linear forwards;
+  position: relative;
+  overflow: hidden;
+}
+
+@keyframes removeAnimation {
+  0% {
+    opacity: 1;
+    margin-top: 0px;
+    scale: 1;
+  }
+  100% {
+    margin-top: -30px;
+    scale: 1;
+    scale: 0.998;
+  }
+}
+.animationCursor {
+  animation: cursorAnimate 0.4s linear forwards;
+  animation-delay: 0.5s;
+  top: 90px;
+  right: 60px;
+}
+@keyframes cursorAnimate {
+  0% {
+    top: 90px;
+    right: 60px;
+  }
+  100% {
+    top: 20px;
+    right: 0px;
+  }
+}
+
+.counterBoxMain {
+  position: relative;
+  padding-left: 100px;
+  padding-right: 0px;
+  top: -58px;
+  @media (min-width: 1320px) and (max-width: 1535px) {
+    top: -79px;
+  }
+}
+@media (min-width: 1280px) and (max-width: 1319px) {
+  .counterBoxMain {
+    top: calc(-80px - ((1319px - 100vw) * 0.2564));
+  }
+}
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .counterBoxMain {
+    top: calc(-30px + ((1279px - 100vw) * 0.01923));
+  }
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  .counterBoxMain {
+    top: -30px;
+  }
+}
+@media (min-width: 550px) and (max-width: 767px) {
+  .counterBoxMain {
+    top: calc(-28px + ((767px - 100vw) * 0.02765));
+  }
+}
+@media (min-width: 425px) and (max-width: 549px) {
+  .counterBoxMain {
+    top: calc(-21px + ((549px - 100vw) * 0.02857));
+  }
+}
+@media (max-width: 424px) {
+  .counterBoxMain {
+    top: -16px;
+  }
+}
+
+.counterBoxContainer {
+  padding-right: clamp(10px, calc((100vw - 1536px) * 0.3 + 10px), 68px);
+  @media (min-width: 1280px) and (max-width: 1535px) {
+    padding-right: 18px;
+  }
+}
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .counterBoxContainer {
+    padding-right: calc(8px + ((100vw - 1024px) * 0.03226));
+  }
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+  .counterBoxContainer {
+    padding-right: 18px;
+  }
+}
+@media (min-width: 550px) and (max-width: 767px) {
+  .counterBoxContainer {
+    padding-right: calc(13px + ((100vw - 550px) * 0.02304));
+  }
+}
+@media (min-width: 425px) and (max-width: 549px) {
+  .counterBoxContainer {
+    padding-right: calc(13px - ((549px - 100vw) * 0.02419));
+  }
+}
+@media (max-width: 424px) {
+  .counterBoxContainer {
+    padding-right: 9px;
+  }
+}
+
+.fontSizes {
+  @media (min-width: 550px) and (max-width: 767px) {
+    font-size: 7px;
+    width: 10px;
+    height: 10px;
+  }
+  @media (min-width: 425px) and (max-width: 549px) {
+    width: 5px;
+    height: 8px;
+    font-size: 5px;
+  }
+  @media (max-width: 424px) {
+    width: 6px;
+    height: 8px;
+    font-size: 5px;
+  }
+}
+.manageRightFade {
+  @media (max-width: 500px) {
+    right: -6px;
+  }
+}
+.manageLeftFade {
+  @media (max-width: 500px) {
+    left: -6px;
+  }
+}
+.cursor-not-allowed {
+  cursor: not-allowed;
+}
+svg text {
+  user-select: text;
+  -webkit-user-select: text;
+}
+.dropShadowCircle {
+  filter: drop-shadow(0 4px 6px rgba(148, 148, 148, 0.5))
+} 

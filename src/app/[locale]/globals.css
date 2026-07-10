@@ -1,0 +1,302 @@
+@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-montserrat: var(--font-montserrat);
+  --font-sora: var(--font-sora);
+  --font-mona: var(--font-mona);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("/public/fonts/Montserrat/static/Montserrat-Light.ttf")
+    format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Mona_Sans";
+  src: url("/public/fonts/Sora/static/Sora-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Mona_";
+  src: url("/public/fonts/Mona_Sans/static/MonaSans-Light.ttf")
+    format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+.gradientBorder::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  z-index: -1;
+  border-radius: 18px;
+  background: conic-gradient(
+    at top left,
+    #79fff7 0deg,
+    /* top-left */ #79fff7 10deg,
+    /* stretch visibility */ #3c87f6 100deg,
+    /* bottom-left */ #2762ba 190deg,
+    /* bottom-right */ #9f53ff 280deg,
+    /* top-right */ #79fff7 360deg
+  );
+}
+
+.flap-char-container {
+  background-color: #100f17;
+  border: 1px solid #2c3146;
+  position: relative;
+  /* display: flex; */
+  align-items: center;
+  width: 26px;
+  padding: 0;
+  /* min-width: 32px; */
+  height: 40px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 6px;
+  color: white;
+  justify-content: center;
+  @media (min-width: 1536px) {
+    width: 47.5px;
+    height: 60px;
+    font-size: 30px;
+  }
+  @media (min-width: 1280px) and (max-width: 1537px) {
+    width: 34px;
+    height: 48px;
+    font-size: 24px;
+  }
+  @media (min-width: 768px) and (max-width: 1279px) {
+    width: 34px;
+    height: 42px;
+    font-size: 20px;
+  }
+  @media (min-width: 640px) and (max-width: 767px) {
+    width: 32px;
+    height: 42px;
+    font-size: 20px;
+  }
+  @media (max-width: 420px) {
+    width: 20px;
+    height: 30px;
+    font-size: 12px;
+  }
+}
+.scaleCards {
+  scale: 1;
+  @media (min-width: 768px) and (max-width: 1024px) {
+    scale: 0.8;
+  }
+}
+.animationCard1 {
+  animation: card1 0.2s linear 0.2s alternate;
+}
+@keyframes card1 {
+  0% {
+    scale: 0.2;
+    left: 30%;
+  }
+  30% {
+    scale: 1.2;
+    left: 30%;
+  }
+  50% {
+    scale: 1;
+    left: 30%;
+  }
+  100% {
+    left: 0%;
+  }
+}
+
+.animationControl {
+  animation: slide 50s linear infinite;
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-60%);
+  }
+}
+
+.animationControl2 {
+  animation: slide 100s linear infinite;
+  animation-play-state: running;
+}
+
+.animationControl2.paused {
+  animation-play-state: paused;
+}
+.scrollHide {
+  overflow-y: scroll;
+}
+
+.scrollHide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+/* 
+.handlePosition {
+  position: relative;
+  top: 129px;
+  width: 750px;
+  scale: 0.9;
+  right: -127px;
+  transition: right 0.3s ease-in-out;
+}
+
+@media (max-width: 1750px) {
+  .handlePosition {
+    right: -65px;
+  }
+}
+
+@media (max-width: 1536px) {
+  .handlePosition {
+    right: -4px;
+  }
+}
+@media (max-width:1535px) {
+  .handlePosition {
+    scale: 0.8;
+    top: 67px;
+    right: -40px;
+  }
+}
+@media (max-width: 1400px) {
+  .handlePosition {
+    right: -2px;
+  }
+}
+
+@media (max-width: 1280px) {
+  .handlePosition {
+    right: 0px;
+  }
+}
+
+@media (max-width: 1150px) {
+  .handlePosition {
+    right: 0px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .handlePosition {
+    right: 0px;
+  }
+} */
+
+.handlePosition {
+  position: absolute;
+  top: 125px;
+  margin-left: calc(113px + ((100vw - 1920px) * 0.316));
+  scale: 0.9;
+
+  @media (min-width: 1360px) and (max-width: 1535px) {
+    scale: 0.8;
+    top: 67px;
+    margin-left: calc(-56px + ((100vw - 1360px) * 0.548));
+  }
+
+  @media (min-width: 1280px) and (max-width: 1359px) {
+    scale: 0.76;
+    top: 59px;
+    margin-left: calc(-90px + ((100vw - 1280px) * 0.625));
+  }
+  @media (min-width: 1200px) and (max-width: 1279px) {
+    scale: 0.8;
+    top: 0;
+    margin-top: calc(58px + ((100vw - 1200px) * 0.35));
+    margin-left: calc(-67px + ((100vw - 1200px) * 0.481));
+  }
+  @media (min-width: 1120px) and (max-width: 1199px) {
+    scale: 0.7;
+    top: 0;
+    margin-top: calc(11px + ((100vw - 1120px) * 0.316));
+    margin-left: calc(-110px + ((100vw - 1120px) * 0.519));
+  }
+  @media (min-width: 1024px) and (max-width: 1119px) {
+    scale: 0.6;
+    top: 0px;
+    margin-top: calc(-25px + ((100vw - 1024px) * 0.241));
+    margin-left: calc(-129px + ((100vw - 1024px) * 0.282));
+  }
+  @media (min-width: 940px) and (max-width: 1023px) {
+    scale: 1.1;
+    top: calc(250px + ((100vw - 940px) * 0.349));
+    right: calc(70px + ((100vw - 940px) * 0.554));
+  }
+  @media (min-width: 768px) and (max-width: 941px) {
+    scale: 0.9;
+    right: calc(-14px + ((100vw - 768px) * 0.427));
+    top: calc(153px + ((100vw - 768px) * 0.306));
+  }
+  @media (min-width: 640px) and (max-width: 767px) {
+    scale: 0.8;
+    right: calc(-67px + ((100vw - 640px) * 0.37));
+    top: calc(87px + ((100vw - 640px) * 0.338));
+  }
+  @media (min-width: 540px) and (max-width: 639px) {
+    scale: 0.67;
+    top: calc(28px + ((100vw - 540px) * 0.393));
+    right: calc(-114px + ((100vw - 540px) * 0.404));
+  }
+  @media (min-width: 460px) and (max-width: 539px) {
+    scale: 0.58;
+    top: calc(-13px + ((100vw - 460px) * 0.38));
+    right: calc(-161px + ((100vw - 460px) * 0.43));
+  }
+  @media (min-width: 390px) and (max-width: 459px) {
+    scale: 0.47;
+    top: calc(-61px + ((100vw - 390px) * 0.449));
+    right: calc(-193px + ((100vw - 390px) * 0.319));
+  }
+  @media (min-width: 350px) and (max-width: 389px) {
+    scale: 0.4;
+    top: calc(-80px + ((100vw - 350px) * 0.359));
+    right: calc(-215px + ((100vw - 350px) * 0.308));
+  }
+  @media (max-width: 349px) {
+    scale: 0.35;
+    top: calc(-103px + ((100vw - 320px) * 0.448));
+    right: calc(-230px + ((100vw - 320px) * 0.448));
+  }
+}
+
+.reportShadow {
+  border-radius: 23px;
+  box-shadow: 0 4px 6px rgba(53, 255, 161, 0.5);
+}

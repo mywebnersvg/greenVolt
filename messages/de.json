@@ -1,0 +1,18 @@
+{
+  "Error": {
+    "description": "<p>Es ist leider ein Problem aufgetreten.</p><p>Du kannst versuchen <retry>diese Seite neu zu laden</retry>.</p>",
+    "title": "Etwas ist schief gelaufen!"
+  },
+  "LocaleSwitcher": {
+    "label": "Sprache ändern",
+    "locale": "{locale, select, de {🇩🇪 DE} en {🇺🇸 EN} other {Unbekannt}}"
+  },
+  "NotFoundPage": {
+    "description": "Bitte überprüfe die Addressleiste deines Browsers oder verwende die Navigation um zu einer bekannten Seite zu wechseln.",
+    "title": "Seite nicht gefunden"
+  },
+  "AboutPage": {
+    "description": "Bei GreenVolt Energie sind wir leidenschaftlich darin, erneuerbare Energie und nachhaltige Lösungen zu entwickeln, die Kosten senken und die Umwelt schützen. Unser Team besteht aus erfahrenen Solar-Technikern, Energieberatern und Spezialisten, die gemeinsam daran arbeiten, Gebäude in effiziente Energiequellen zu verwandeln. Seit unserer Gründung haben wir Hausbesitzer und Unternehmen in ganz Deutschland beim Umstieg auf saubere Solarenergie unterstützt – mit maßgeschneiderten Photovoltaik-Systemen, Batteriespeichern und Smart-Home-Integration. Wir glauben an Transparenz, Qualität und langfristige Partnerschaften. Egal ob Privathaushalt oder Gewerbe – wir begleiten Sie auf Ihrem Weg zur Energieunabhängigkeit mit Expertise, Technologie und Engagement.",
+    "title": "Über uns"
+  }
+}
