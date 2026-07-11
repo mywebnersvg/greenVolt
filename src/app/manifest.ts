@@ -1,16 +1,13 @@
 import { MetadataRoute } from 'next';
-import { getTranslations } from 'next-intl/server';
-import { routing } from '@/i18n/routing';
 
-export default async function manifest(): Promise<MetadataRoute.Manifest> {
-    const t = await getTranslations({
-        locale: routing.defaultLocale,
-        namespace: 'Manifest'
-    });
-
-    return {
-        name: t('name'),
-        start_url: '/',
-        theme_color: '#101E33'
-    };
+export default function manifest(): MetadataRoute.Manifest {
+  return {
+    name: 'GreenVolt Energie',
+    short_name: 'GreenVolt',
+    description: 'GreenVolt Energie - Smarte Solartechnik',
+    start_url: '/',
+    display: 'standalone',
+    background_color: '#0A1210',
+    theme_color: '#101E33',
+  };
 }
