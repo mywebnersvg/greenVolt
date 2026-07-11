@@ -5,7 +5,6 @@ import LocaleSwitcher from "./LocaleSwitcher";
 
 const Navbar = () => {
   const t = useTranslations("Navbar");
-  const [isOpen, setIsOpen] = useState(true); // desktop dropdown
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false); // mobile menu
   const dropdownRef = useRef<HTMLDivElement>(null);
   const [isHovered, setIsHovered] = useState(false);
@@ -18,7 +17,6 @@ const Navbar = () => {
         dropdownRef.current &&
         !dropdownRef.current.contains(event.target as Node)
       ) {
-        setIsOpen(true);
         setMobileMenuOpen(false);
       }
     };

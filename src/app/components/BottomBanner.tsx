@@ -118,20 +118,20 @@ const BottomBanner = () => {
     }
   }, [isInView]);
 
-  // const handleRemove = (indexToRemove: number) => {
-  //   setIndexToRemove(indexToRemove);
+  const handleRemove = (indexToRemove: number) => {
+    setIndexToRemove(indexToRemove);
 
-  //   setTimeout(() => {
-  //     setItems((prevItems) => {
-  //       const itemToMove = prevItems[indexToRemove];
-  //       const newItems = prevItems.filter(
-  //         (_, index) => index !== indexToRemove
-  //       );
-  //       return [...newItems, itemToMove];
-  //     });
-  //     setIndexToRemove(-1);
-  //   }, 530);
-  // };
+    setTimeout(() => {
+      setItems((prevItems) => {
+        const itemToMove = prevItems[indexToRemove];
+        const newItems = prevItems.filter(
+          (_, index) => index !== indexToRemove
+        );
+        return [...newItems, itemToMove];
+      });
+      setIndexToRemove(null);
+    }, 530);
+  };
 
   const [circleX, setCircleX] = useState(0);
 
@@ -230,7 +230,7 @@ const BottomBanner = () => {
     visible: {
       strokeDashoffset: 0,
       opacity: 1,
-      transition: { duration: 0.7, delay: 0.9, ease: "easeInOut" },
+      transition: { duration: 0.7, delay: 0.9, ease: "easeInOut" as const },
     },
   };
 
@@ -239,7 +239,7 @@ const BottomBanner = () => {
     visible: {
       scale: 1,
       opacity: 1,
-      transition: { duration: 0.5, delay: 1.2, ease: "easeInOut" },
+      transition: { duration: 0.5, delay: 1.2, ease: "easeInOut" as const },
     },
   };
   const iconAnimation2 = {
@@ -247,7 +247,7 @@ const BottomBanner = () => {
     visible: {
       scale: 1,
       opacity: 1,
-      transition: { duration: 0.5, delay: 2, ease: "easeInOut" },
+      transition: { duration: 0.5, delay: 2, ease: "easeInOut" as const },
     },
   };
   const arrowAnimation = {
@@ -255,7 +255,7 @@ const BottomBanner = () => {
     visible: {
       strokeDashoffset: 0,
       opacity: 1,
-      transition: { duration: 0.4, delay: 1.8, ease: "easeInOut" },
+      transition: { duration: 0.4, delay: 1.8, ease: "easeInOut" as const },
     },
   };
 
@@ -272,7 +272,7 @@ const BottomBanner = () => {
       y: 0,
       x: 0,
       opacity: 1,
-      transition: { duration: 0.5, delay: 0.3, ease: "easeOut" },
+      transition: { duration: 0.5, delay: 0.3, ease: "easeOut" as const },
     },
   };
   const iconAnimation3 = {
@@ -280,7 +280,7 @@ const BottomBanner = () => {
     visible: {
       scale: 1,
       opacity: 1,
-      transition: { duration: 1.1, delay: 1.2, ease: "easeInOut" },
+      transition: { duration: 1.1, delay: 1.2, ease: "easeInOut" as const },
     },
   };
   const boxUpwardAnimation2 = {
@@ -295,7 +295,7 @@ const BottomBanner = () => {
       y: 0,
       x: 0,
       opacity: 1,
-      transition: { duration: 0.5, delay: 0.3, ease: "easeOut" },
+      transition: { duration: 0.5, delay: 0.3, ease: "easeOut" as const },
     },
   };
 
@@ -311,7 +311,7 @@ const BottomBanner = () => {
       y: 0,
       x: 0,
       opacity: 1,
-      transition: { duration: 0.5, delay: 1.4, ease: "easeOut" },
+      transition: { duration: 0.5, delay: 1.4, ease: "easeOut" as const },
     },
   };
 
@@ -323,7 +323,7 @@ const BottomBanner = () => {
     visible: {
       height: 124.528,
       opacity: 1,
-      transition: { duration: 0.5, delay: 0.7, ease: "easeOut" },
+      transition: { duration: 0.5, delay: 0.7, ease: "easeOut" as const },
     },
   };
   const dottedLineAnimation2 = {
@@ -331,7 +331,7 @@ const BottomBanner = () => {
     visible: {
       strokeDashoffset: 0,
       opacity: 1,
-      transition: { duration: 0.9, delay: 1, ease: "easeInOut" },
+      transition: { duration: 0.9, delay: 1, ease: "easeInOut" as const },
     },
   };
   const itemsUpwardAnimation = {
@@ -342,7 +342,7 @@ const BottomBanner = () => {
     visible: {
       y: 0,
       opacity: 1,
-      transition: { duration: 0.5, delay: 0.9, ease: "easeOut" },
+      transition: { duration: 0.5, delay: 0.9, ease: "easeOut" as const },
     },
   };
   return (

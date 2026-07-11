@@ -2,12 +2,17 @@
 
 import { useParams } from "next/navigation";
 import { Locale } from "next-intl";
-import { ReactNode, useEffect, useState, useTransition, isValidElement } from "react";
+import { ReactNode, useEffect, useState, useTransition, isValidElement, ReactElement } from "react";
 import { usePathname, useRouter } from "@/i18n/navigation";
 
 type Option = {
   value: string;
   label: string;
+};
+
+type OptionElementProps = {
+  value: string;
+  children?: ReactNode;
 };
 
 type Props = {
@@ -41,10 +46,13 @@ export default function LocaleSwitcherSelect({
   const options: Option[] = Array.isArray(children)
     ? children
         .filter(isValidElement)
-        .map((child) => ({
-          value: String(child.props.value),
-          label: String(child.props.children),
-        }))
+        .map((child) => {
+          const props = (child as ReactElement<OptionElementProps>).props;
+          return {
+            value: String(props.value),
+            label: String(props.children),
+          };
+        })
     : [];
 
   function handleSelect(opt: Option) {
@@ -59,7 +67,6 @@ export default function LocaleSwitcherSelect({
       );
     });
   }
-  console.log({ pathname, params });
 
   return (
     <div
